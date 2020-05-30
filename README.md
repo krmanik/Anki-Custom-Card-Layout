@@ -26,3 +26,8 @@ This card will work when following codes added to AnkiDroid
 1. Progress bar is not implemented. 
 2. It uses ```setTimeout``` because wait for values to be defined in webview. 
 3. To be implemented:- When three button present then hide fourth button.
+
+### Resources
+[https://grid.layoutit.com/](https://grid.layoutit.com/)
+[https://codepen.io/](https://codepen.io/)
+[https://www.w3schools.com/](https://www.w3schools.com/)
