@@ -16,6 +16,19 @@ This card will work when following codes added to AnkiDroid
 3. Turn on Full Screen
 4. Now Open the Sample Deck
 
+## Following values is available in after [setTimeout]
+```javascript
+    setTimeout(function () {
+        console.log(window.title);
+        console.log(window.newCountVar);
+        console.log(window.lrnCountVar);
+        console.log(window.revCountVar);
+        console.log(window.eta);
+        console.log(window.mark);
+    }, 500);
+```
+
+
 ### Card Files
 [Front Side](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/front.html)
 <br>[Back Side](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/back.html)
