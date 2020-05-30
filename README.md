@@ -29,5 +29,5 @@ This card will work when following codes added to AnkiDroid
 
 ### Resources
 [https://grid.layoutit.com/](https://grid.layoutit.com/)
-[https://codepen.io/](https://codepen.io/)
-[https://www.w3schools.com/](https://www.w3schools.com/)
+<br>[https://codepen.io/](https://codepen.io/)
+<br>[https://www.w3schools.com/](https://www.w3schools.com/)
