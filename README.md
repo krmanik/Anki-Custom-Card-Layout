@@ -10,9 +10,18 @@ This card will work when following codes added to AnkiDroid
 <br>
 [AbstractFlashcardViewer](https://github.com/infinyte7/Anki-Android/blob/master/AnkiDroid/src/main/java/com/ichi2/anki/AbstractFlashcardViewer.java#L3159)
 
+### Usage
+1. Turn on Gestures in AnkiDroid 
+2. Map all Swipe getures to No Action
+3. Turn on Full Screen
+4. Now Open the Sample Deck
+
+### Card Files
 [Front Side](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/front.html)
 <br>[Back Side](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/back.html)
 <br>[Card CSS](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/card.css)
 <br><br>[Sample Deck](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/HSK1.apkg)
 
-Note: Progress bar not implemented. It uses ```setTimeout``` because wait for values to be defined in webview. 
+### Note
+1. Progress bar not implemented. 
+<br>2. It uses ```setTimeout``` because wait for values to be defined in webview. 
