@@ -16,7 +16,7 @@ This card will work when following codes added to AnkiDroid
 3. Turn on Full Screen
 4. Now Open the Sample Deck
 
-## Following values is available in after [setTimeout]
+## Following values is available in WebView after [setTimeout]
 ```javascript
     setTimeout(function () {
         console.log(window.title);
