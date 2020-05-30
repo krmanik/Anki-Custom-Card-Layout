@@ -23,5 +23,6 @@ This card will work when following codes added to AnkiDroid
 <br><br>[Sample Deck](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/HSK1.apkg)
 
 ### Note
-1. Progress bar not implemented. 
-<br>2. It uses ```setTimeout``` because wait for values to be defined in webview. 
+1. Progress bar is not implemented. 
+2. It uses ```setTimeout``` because wait for values to be defined in webview. 
+3. To be implemented:- When three button present then hide fourth button.
