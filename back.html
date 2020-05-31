@@ -1,66 +1,255 @@
-<div class="grid-container">
-    
-    <div class="star" onclick="markCardStar()">
-        <button class="medium-button" onclick="markCard();"style="background-color: #ff5722;"><i id="starID" class="material-icons">star_outline</i></button>
-    </div>
-    
-    <div class="progress-bar">
-        <div class="progress"><div id="bar" class="bar"></div></div>
-    </div>
-    
-    <div class="qa-title">
-        <div id='ch_sim' class="text-color4 ">{{Simplified}}</div>
-        <div id='ch_pin' class="text-color1">{{Pinyin}}</div>
-        <div id='ch_mean' class="text-color3">{{Meaning}}</div>
-    </div>
+<div class="title">{{Deck}}</div>
+<div id="timeID" class="time-left"></div>
 
-    <div class="card-qa"><div class="card2" id="character-target-div"></div></div>
-
-    <div class="btn-audio">
-        <button onclick="playAudio();" ; class="small-button" style="background-color: #f57f17;"><div id="audio" style="display:none;">{{Audio}}</div><i class="material-icons">volume_up</i></button>
-    </div>
-    
-    <div class="btn-answer">
-        <button class="button" onclick="buttonAnswerEase1();" style="background-color: #f44336;"><iclass="material-icons">replay</i></button>
-        <button class="button" onclick="buttonAnswerEase2();" style="background-color: #009688;"><iclass="material-icons">repeat</i></button>
-        <button class="button" onclick="buttonAnswerEase3();" style="background-color: #4caf50;"><iclass="material-icons">done</i></button>
-        <button class="button" onclick="buttonAnswerEase4();" style="background-color: #03a9f4;"><iclass="material-icons">done_all</i></button>
-    </div>
+<!--<div class="progress"><div id="bar" class="bar"></div></div>-->
+<div class="card-count">
+    <table style="width:28%; margin: 0 auto;">
+        <tbody>
+            <tr>
+            <tr class="card-count-dot">
+                <td style="color:#2196f3;">&#8226;</td>
+                <td style="color:#607d8b;">&#8226;</td>
+                <td style="color:#4caf50;">&#8226;</td>
+            </tr>
+            <tr class="card-count-num">
+                <td id="newCard"></td>
+                <td id="learnCard"></td>
+                <td id="reviewCard"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
+<div class="card-center">
+    <div id='ch_sim' class="text-color4 ">{{Simplified}}</div>
+    <div id='ch_trad' class="text-color4 " style="display:none;">{{Traditional}}</div>
+    <div id='ch_pin' class="text-color1">{{Pinyin}}</div>
+    <div id='ch_mean' class="text-color3">{{Meaning}}</div>
+</div>
+
+<div class="container">
+    <div class="top-right">
+        <button onclick="playAudio();" ; class="small-button" style="background-color: #f57f17;">
+            <div id="audio" style="display:none;">{{Audio}}</div><i class="material-icons">volume_up</i>
+        </button>
+    </div>
+
+    <div id="character-target-div"></div>
+
+    <div class="top-left">
+        <button id="btnReveal" class="small-button" style="background-color: #f57f17;"><i
+                class="material-icons">gesture</i></button>
+    </div>
+
+    <div class="bottom-right">
+        <div id="flags" onclick="clickFlag();">
+            <div id="flags-list" style="display:inline; opacity:0">
+                <button class="small-button" onclick="redFlagClick();" style="color:red; background-color: white;"><i
+                        class="material-icons">flag</i></button>
+
+                <button class="small-button" onclick="orangeFlagClick();"
+                    style="color:orange; background-color: white;"><i class="material-icons">flag</i></button>
+
+                <button class="small-button" onclick="greenFlagClick();"
+                    style="color:green; background-color: white;"><i class="material-icons">flag</i></button>
+
+                <button class="small-button" onclick="blueFlagClick();" style="color:blue; background-color: white;"><i
+                        class="material-icons">flag</i></button>
+            </div>
+            <button id="flag-shown" class="small-button" style="background-color: #f57f17;"><i
+                    class="material-icons">flag</i></button>
+        </div>
+    </div>
+
+    <div class="bottom-left">
+        <button onclick="markCard();" class="small-button" style="background-color: #f57f17;"><i id="mark-card"
+                class="material-icons">star_outline</i></button>
+    </div>
+
+</div>
+
+<div class="button-container">
+    <button class="button" onclick="buttonAnswerEase1();" style="background-color: #f44336;"><i
+            class="material-icons">replay</i></button>
+    <button class="button" onclick="buttonAnswerEase2();" style="background-color: #009688;"><i
+            class="material-icons">repeat</i></button>
+    <button class="button" onclick="buttonAnswerEase3();" style="background-color: #4caf50;"><i
+            class="material-icons">done</i></button>
+    <button class="button" onclick="buttonAnswerEase4();" style="background-color: #03a9f4;"><i
+            class="material-icons">done_all</i></button>
+</div>
 
 <script>
-    function markCardStar() {
-        if (document.getElementById("starID").innerHTML == 'star') {
-            document.getElementById("starID").innerHTML = 'star_outline';
+
+    //https://stackoverflow.com/questions/44109314/javascript-calculate-with-viewport-width-height
+    function vh(v) {
+        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        return (v * h) / 100;
+    }
+    function vw(v) {
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        return (v * w) / 100;
+    }
+    function vmin(v) {
+        return Math.min(vh(v), vw(v));
+    }
+    function vmax(v) {
+        return Math.max(vh(v), vw(v));
+    }
+
+    var char_height = vh(80);
+    var char_width = vw(80);
+    //var char_height = 400;
+    //var char_width = 400;
+    if (char_height >= char_width) {
+        char_height = char_width;
+    } else {
+        char_width = char_height;
+    }
+
+    document.querySelector(".container").style.height = char_height + "px";
+    document.querySelector(".container").style.width = char_width + "px";
+
+    var clickedF = false;
+    function clickFlag() {
+        clickedF = !clickedF;
+        if (clickedF) {
+            document.getElementById("flags-list").style.opacity = "1";
         } else {
-            document.getElementById("starID").innerHTML = 'star';
+            document.getElementById("flags-list").style.opacity = "0";
         }
     }
 
+    var markedC = false;
+    function markCard() {
+        ankiMarkCard();
+        markedC = !markedC;
+        if (markedC) {
+            document.getElementById("mark-card").innerHTML = "star";
+        } else {
+            document.getElementById("mark-card").innerHTML = "star_outline";
+        }
+    }
+
+    var redFlagClicked = false;
+    function redFlagClick() {
+
+        redFlagClicked = !redFlagClicked;
+        orangeFlagClicked = false;
+        greenFlagClicked = false;
+        blueFlagClicked = false;
+
+        if (redFlagClicked) {
+            document.getElementById("flag-shown").style.color = "red";
+            document.getElementById("flag-shown").style.background = "white";
+        } else {
+            document.getElementById("flag-shown").style.color = "white";
+            document.getElementById("flag-shown").style.background = "#f57f17";
+        }
+        ankiToggleFlag('red');
+    }
+
+    var orangeFlagClicked = false;
+    function orangeFlagClick() {
+
+        redFlagClicked = false;
+        orangeFlagClicked = !orangeFlagClicked;
+        greenFlagClicked = false;
+        blueFlagClicked = false;
+
+        if (orangeFlagClicked) {
+            document.getElementById("flag-shown").style.color = "orange";
+            document.getElementById("flag-shown").style.background = "white";
+        } else {
+            document.getElementById("flag-shown").style.color = "white";
+            document.getElementById("flag-shown").style.background = "#f57f17";
+        }
+        ankiToggleFlag('orange');
+    }
+
+    var greenFlagClicked = false;
+    function greenFlagClick() {
+
+        greenFlagClicked = !greenFlagClicked;
+        redFlagClicked = false;
+        orangeFlagClicked = false;
+        blueFlagClicked = false;
+
+        if (greenFlagClicked) {
+            document.getElementById("flag-shown").style.color = "green";
+            document.getElementById("flag-shown").style.background = "white";
+        } else {
+            document.getElementById("flag-shown").style.color = "white";
+            document.getElementById("flag-shown").style.background = "#f57f17";
+        }
+        ankiToggleFlag('green');
+    }
+
+    var blueFlagClicked = false;
+    function blueFlagClick() {
+
+        blueFlagClicked = !blueFlagClicked;
+        redFlagClicked = false;
+        orangeFlagClicked = false;
+        greenFlagClicked = false;
+
+        if (blueFlagClicked) {
+            document.getElementById("flag-shown").style.color = "blue";
+            document.getElementById("flag-shown").style.background = "white";
+        } else {
+            document.getElementById("flag-shown").style.color = "white";
+            document.getElementById("flag-shown").style.background = "#f57f17";
+        }
+        ankiToggleFlag('blue');
+    }
+
+    function init() {
+        if (AnkiDroidJS.ankiGetCardMark()) {
+            document.getElementById("mark-card").innerHTML = "star";
+        } else {
+            document.getElementById("mark-card").innerHTML = "star_outline";
+        }
+
+        switch (AnkiDroidJS.ankiGetCardFlag()) {
+            case 0:
+                document.getElementById("flag-shown").style.color = "white";
+                document.getElementById("flag-shown").style.background = "#f57f17";
+                break;
+            case 1:
+                document.getElementById("flag-shown").style.color = "red";
+                document.getElementById("flag-shown").style.background = "white";
+                break;
+            case 2:
+                document.getElementById("flag-shown").style.color = "orange";
+                document.getElementById("flag-shown").style.background = "white";
+                break;
+            case 3:
+                document.getElementById("flag-shown").style.color = "green";
+                document.getElementById("flag-shown").style.background = "white";
+                break;
+            case 4:
+                document.getElementById("flag-shown").style.color = "blue";
+                document.getElementById("flag-shown").style.background = "white";
+                break;
+            default:
+                break;
+        }
+
+        document.getElementById("newCard").innerText = AnkiDroidJS.ankiGetNewCardCount();
+        document.getElementById("learnCard").innerText = AnkiDroidJS.ankiGetLrnCardCount();
+        document.getElementById("reviewCard").innerText = AnkiDroidJS.ankiGetRevCardCount();
+
+        var t = AnkiDroidJS.ankiGetETA();
+        document.getElementById("timeID").innerHTML = t + " mins.";
+
+    }
     function playAudio() {
         var audioDiv = document.getElementById('audio');
         var audio = audioDiv.getElementsByTagName("*");
         audio[0].click();
     }
 
-    setTimeout(function () {
-        console.log(window.newCountVar);
-        console.log(window.lrnCountVar);
-        console.log(window.revCountVar);
-
-        var cardscount = parseInt(window.newCountVar) + parseInt(window.lrnCountVar) + parseInt(window.revCountVar);
-        var card_mark = window.mark;
-
-        if (card_mark) {
-            document.getElementById("starID").innerHTML = 'star';
-        }
-        else {
-            document.getElementById("starID").innerHTML = 'star_outline';
-        }
-
-        //document.getElementById("bar").style = "width:" + cardscount + ";";
-    }, 400);
+    //init();  // uncomment it in AnkiDroid card Editor
 
 </script>
 
@@ -100,13 +289,24 @@
         // Wrap the code inside a Promise constructor callback:
         return new Promise(function (resolve, reject) {
             var writer = HanziWriter.create('grid-background-target', c, {
-                width: charW,
-                height: charH,
+                width: char_width,
+                height: char_height,
                 showCharacter: false,
-                showOutline: true,
+                showOutline: false,
                 highlightOnComplete: true,
                 padding: 5
             });
+
+            var o = false;
+            document.getElementById("btnReveal").onclick = function () {
+                o = !o;
+                if (o) {
+                    writer.showOutline();
+                } else {
+                    writer.hideOutline();
+                }
+            };
+
             writer.quiz({
                 onMistake: function (strokeData) {
                 },
