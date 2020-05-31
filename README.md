@@ -2,30 +2,29 @@
 
 Anki Custom Card Layout
 
-![demo](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/images/demo.gif)
+![demo](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/images/anki_js_demo_.gif?raw=true)
 
-This card will work when following codes added to AnkiDroid
-
-[card.js](https://github.com/infinyte7/Anki-Android/blob/master/AnkiDroid/src/main/assets/scripts/card.js#L78)
-<br>
-[AbstractFlashcardViewer](https://github.com/infinyte7/Anki-Android/blob/master/AnkiDroid/src/main/java/com/ichi2/anki/AbstractFlashcardViewer.java#L3159)
+To learn more, view these.
+[#6306](https://github.com/ankidroid/Anki-Android/issues/6306)
+[#6307](https://github.com/ankidroid/Anki-Android/pull/6307)
 
 ### Usage
 1. Turn on Gestures in AnkiDroid 
 2. Map all Swipe getures to No Action
 3. Turn on Full Screen
 4. Now Open the Sample Deck
+5. Uncomment ```init();``` in card templates
 
-## Following values is available in WebView after [setTimeout]
+## Following values is available in card templates
 ```javascript
-    setTimeout(function () {
-        console.log(window.title);
-        console.log(window.newCountVar);
-        console.log(window.lrnCountVar);
-        console.log(window.revCountVar);
-        console.log(window.eta);
-        console.log(window.mark);
-    }, 500);
+ <script>
+        console.log(AnkiDroidJS.ankiGetNewCardCount());
+        console.log(AnkiDroidJS.ankiGetLrnCardCount());
+        console.log(AnkiDroidJS.ankiGetRevCardCount());
+        console.log(AnkiDroidJS.ankiGetCardMark());
+        console.log(AnkiDroidJS.ankiGetCardFlag());
+        console.log(AnkiDroidJS.ankiGetETA());
+ </script>
 ```
 
 
@@ -36,11 +35,16 @@ This card will work when following codes added to AnkiDroid
 <br><br>[Sample Deck](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/HSK1.apkg)
 
 ### Note
-1. Progress bar is not implemented. 
-2. It uses ```setTimeout``` because wait for values to be defined in webview. 
-3. To be implemented:- When three button present then hide fourth button.
+1. Progress bar can be implemented by getting total card count.
+```
+total = AnkiDroidJS.ankiGetNewCardCount() + AnkiDroidJS.ankiGetLrnCardCount() + AnkiDroidJS.ankiGetRevCardCount();
+``` 
+2. To be implemented:- When three button present then hide fourth button.
 
 ### Resources
-[https://grid.layoutit.com/](https://grid.layoutit.com/)
-<br>[https://codepen.io/](https://codepen.io/)
-<br>[https://www.w3schools.com/](https://www.w3schools.com/)
+https://developer.android.com/reference/android/webkit/JavascriptInterface
+https://stackoverflow.com/questions/21173888/how-to-pass-non-primitive-object-from-java-to-js-by-android-addjavascriptinterfa
+https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
+https://grid.layoutit.com/
+https://codepen.io/
+https://www.w3schools.com/
