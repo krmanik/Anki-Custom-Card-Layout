@@ -1,9 +1,41 @@
-<div class="grid-container">
-    <div class="title">Chinese Language HSK 1</div>
-    <div class="progress-bar"></div>
-    <div class="qa-title"></div>
-    <div class="card-qa text-color4">{{Meaning}}</div>
-    <div class="btn-audio"></div>
-    <div class="btn-answer"><button class="button"><i class="material-icons">remove_red_eye</i></button></div>
-    <div class="btn-audio"></div>
+<div class="title">{{Deck}}</div>
+<div id="timeID" class="time-left"></div>
+<div class="card-count">
+    <table style="width:28%; margin: 0 auto;">
+        <tbody>
+            <tr>
+            <tr class="card-count-dot">
+                <td style="color:#2196f3;">&#8226;</td>
+                <td style="color:#607d8b;">&#8226;</td>
+                <td style="color:#4caf50;">&#8226;</td>
+            </tr>
+            <tr class="card-count-num">
+                <td id="newCard"></td>
+                <td id="learnCard"></td>
+                <td id="reviewCard"></td>
+            </tr>
+
+        </tbody>
+    </table>
 </div>
+
+
+{{Pinyin}}
+
+<div class="button-container">
+    <button class="button" onclick="showAnswer();" style="background-color: #4caf50;"><i
+            class="material-icons">visibility</i></button>
+</div>
+
+<script>
+    function init() {
+        document.getElementById("newCard").innerText = AnkiDroidJS.ankiGetNewCardCount();
+        document.getElementById("learnCard").innerText = AnkiDroidJS.ankiGetLrnCardCount();
+        document.getElementById("reviewCard").innerText = AnkiDroidJS.ankiGetRevCardCount();
+
+        var t = AnkiDroidJS.ankiGetETA();
+        document.getElementById("timeID").innerHTML = t + "mins.";
+    }
+
+//init();   // uncomment this in AnkiDroid card editor
+</script>
