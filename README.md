@@ -43,8 +43,8 @@ total = AnkiDroidJS.ankiGetNewCardCount() + AnkiDroidJS.ankiGetLrnCardCount() + 
 
 ### Resources
 https://developer.android.com/reference/android/webkit/JavascriptInterface
-https://stackoverflow.com/questions/21173888/how-to-pass-non-primitive-object-from-java-to-js-by-android-addjavascriptinterfa
-https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
-https://grid.layoutit.com/
-https://codepen.io/
-https://www.w3schools.com/
+<br>https://stackoverflow.com/questions/21173888/how-to-pass-non-primitive-object-from-java-to-js-by-android-addjavascriptinterfa
+<br>https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
+<br>https://grid.layoutit.com/
+<br>https://codepen.io/
+<br>https://www.w3schools.com/
