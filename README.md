@@ -32,7 +32,9 @@ To learn more, view these.
 [Front Side](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/front.html)
 <br>[Back Side](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/back.html)
 <br>[Card CSS](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/card.css)
-<br><br>[Sample Deck](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/HSK1.apkg)
+<br>
+<b> Note : Drawing stroke on screen have changed position. (To be corrected).
+[Sample Deck](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/HSK1.apkg)
 
 ### Note
 1. Progress bar can be implemented by getting total card count.
