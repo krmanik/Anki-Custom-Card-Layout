@@ -1,159 +1,3 @@
-    .card {
-        background-color: white;
-        padding: 8px;
-        margin: 12px auto;
-        height: 100%;
-        border-radius: 15px;
-        box-shadow: -1px -1px 5px 1px rgba(0, 0, 0, 0.10);
-        cursor: pointer;
-        transition: 0.1s;
-    }
-
-    .grid-container {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
-
-    .grid-container {
-        text-align: center;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 0.5fr 0.2fr 0.7fr 3.5fr 0.5fr 0.6fr;
-        gap: 1px 1px;
-        grid-template-areas: "star""progress-bar""qa-title""card-qa""btn-audio""btn-answer";
-    }
-
-    .progress-bar {
-        grid-area: progress-bar;
-    }
-
-    .qa-title {
-        grid-area: qa-title;
-    }
-
-    .card-qa {
-        grid-area: card-qa;
-    }
-
-    .btn-audio {
-        grid-area: btn-audio;
-    }
-
-    .btn-answer {
-        grid-area: btn-answer;
-    }
-
-    .star {
-        grid-area: star;
-        text-align: right;
-    }
-
-    .title {
-        display: inline;
-        font-size: 25px;
-        color: gray;
-        font-weight: bold;
-        opacity: 0.8;
-    }
-
-    .card2 {
-        padding: 8px;
-        margin: 10px auto;
-        width: 250px;
-        height: 250px;
-        border-radius: 8px;
-        box-shadow: -1px -1px 8px 1px rgba(0, 0, 0, 0.10);
-        cursor: pointer;
-        transition: 0.1s;
-    }
-
-    .card3 {
-        padding: 4px;
-        width: 80%;
-        height: 100%;
-        border-radius: 3px;
-        box-shadow: -1px -1px 5px 1px rgba(0, 0, 0, 0.12);
-        cursor: pointer;
-        transition: 0.1s;
-    }
-
-    .button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 12px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 6px;
-        margin: 4px 2px;
-        outline: none;
-        border-radius: 100%;
-        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.26);
-    }
-
-    .button:active {
-        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
-        opacity: .8;
-    }
-
-    .small-button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 3px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 3px;
-        outline: none;
-        border-radius: 100%;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
-    }
-
-    .small-button:active {
-        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
-        opacity: .8;
-    }
-
-    .medium-button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 6px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 6px;
-        outline: none;
-        border-radius: 100%;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
-    }
-
-    .medium-button:active {
-        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
-        opacity: .8;
-    }
-
-    /*https://codepen.io/AmrSubZero/pen/Byybom*/
-    .progress {
-        margin: 20px auto;
-        padding: 0;
-        width: 90%;
-        height: 10px;
-        overflow: hidden;
-        background: #e5e5e5;
-        border-radius: 6px;
-    }
-
-    .bar {
-        position: relative;
-        float: left;
-        height: 100%;
-        background: cornflowerblue;
-    }
-
     /* START Material Icon */
     @font-face {
         font-family: 'Material Icons';
@@ -196,21 +40,168 @@
 
     /* END Material Icon */
 
-    /* START grid for chinese outline background*/
+
+    .card {
+        text-align: center;
+        background-color: white;
+    }
+
+    .title {
+        text-align: left;
+        font-size: 20px;
+        color: gray;
+        font-weight: bold;
+        opacity: 0.8;
+    }
+
+    .time-left {
+        text-align: left;
+        font-weight: bold;
+        color: teal;
+        opacity: 0.8;
+    }
+
+    .card-count {
+        margin: 0 auto;
+    }
+
+    .card-count-num {
+        font-weight: bold;
+        color: black;
+        font-size: 18px;
+        opacity: 0.7;
+    }
+
+    .card-count-dot {
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .card-count-text {
+        font-weight: light;
+        font-size: 14px;
+    }
+
+    .container {
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .flags {
+        margin: 1px;
+    }
+
+    .top-right {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    .top-left {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .bottom-right {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .bottom-left {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+    }
+
+    .button-container {
+        padding: 40px;
+    }
+
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 6px;
+        margin: 4px 2px;
+        outline: none;
+        border-radius: 100%;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.26);
+    }
+
+    .button:active {
+        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
+        opacity: .8;
+    }
+
+    .small-button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 2px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 3px;
+        margin: 5px 0px;
+        outline: none;
+        border-radius: 0%;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+    }
+
+    .small-button:active {
+        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
+        opacity: .8;
+    }
+
+    .medium-button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 6px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 6px;
+        outline: none;
+        border-radius: 100%;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+    }
+
+    .medium-button:active {
+        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
+        opacity: .8;
+    }
+
+    /*https://codepen.io/AmrSubZero/pen/Byybom*/
+    .progress {
+        margin: 20px auto;
+        padding: 0;
+        width: 90%;
+        height: 8px;
+        overflow: hidden;
+        background: #e5e5e5;
+        border-radius: 6px;
+    }
+
+    .bar {
+        position: relative;
+        float: left;
+        height: 100%;
+        background: cornflowerblue;
+    }
+
+    /* START grid */
     .grid-color {
         background-color: #FAFAFA;
     }
+
     /* END grid */
-
-    .modal-footer {
-        text-align: center;
-    }
-
-    .modal-footer a {
-        display: inline-block;
-        margin: 0 8px;
-        float: none;
-    }
 
     .text-color1 {
         color: #E53935;
