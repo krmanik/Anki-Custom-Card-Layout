@@ -1,0 +1,218 @@
+/* START Material Icon */
+
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 300;
+	src: url(MaterialIcons-Regular.eot);
+	/* For IE6-8 */
+	src: local('Material Icons'), local('MaterialIcons-Regular'), url(_MaterialIcons-Regular.woff2) format('woff2'), url(_MaterialIcons-Regular.woff) format('woff'), url(_MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	/* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+/* END Material Icon */
+
+.card {
+	text-align: center;
+	background-color: white;
+}
+
+.title {
+	text-align: left;
+	font-size: 20px;
+	color: gray;
+	font-weight: bold;
+	opacity: 0.8;
+}
+
+.time-left {
+	text-align: left;
+	font-weight: bold;
+	color: teal;
+	opacity: 0.8;
+}
+
+.card-count {
+	margin: 0 auto;
+}
+
+.card-count-num {
+	font-weight: bold;
+	color: black;
+	font-size: 18px;
+	opacity: 0.7;
+}
+
+.card-count-dot {
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.card-count-text {
+	font-weight: light;
+	font-size: 14px;
+}
+
+.container {
+	margin: 0 auto;
+	position: relative;
+}
+
+.flags {
+	margin: 1px;
+}
+
+.top-right {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.top-left {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.bottom-right {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+.bottom-left {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+.button-container {
+	padding: 40px;
+}
+
+.button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 12px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 6px;
+	margin: 4px 2px;
+	outline: none;
+	border-radius: 100%;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.26);
+}
+
+.button:active {
+	box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
+	opacity: .8;
+}
+
+.small-button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 2px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 3px;
+	margin: 5px 0px;
+	outline: none;
+	border-radius: 0%;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+
+.small-button:active {
+	box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
+	opacity: .8;
+}
+
+.medium-button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 6px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 6px;
+	outline: none;
+	border-radius: 100%;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+
+.medium-button:active {
+	box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.26);
+	opacity: .8;
+}
+
+/*https://codepen.io/AmrSubZero/pen/Byybom*/
+
+.progress {
+	margin: 20px auto;
+	padding: 0;
+	width: 90%;
+	height: 8px;
+	overflow: hidden;
+	background: #00c853;
+	border-radius: 6px;
+}
+
+.bar {
+	position: relative;
+	float: left;
+	height: 100%;
+	background: #e5e5e5;
+}
+
+
+/* START grid */
+
+.grid-color {
+	background-color: #FAFAFA;
+}
+
+
+/* END grid */
+
+.text-color1 {
+	color: #E53935;
+}
+
+.text-color2 {
+	color: #37474F;
+}
+
+.text-color3 {
+	color: #0D47A1;
+	font-size: 25px;
+}
+
+.text-color4 {
+	color: #D50000;
+	font-size: 35px;
+}
