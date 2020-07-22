@@ -4,9 +4,17 @@ Use AnkiDroid JavaScript functions to get cards details and design card like bel
 
 ![demo](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/images/anki_js_demo_.gif?raw=true)
 
+# To be updated with latest PR after merged to [Anki-Android](https://github.com/ankidroid/Anki-Android/pulls/infinyte7)
+
 To learn more, view these.
 [#6306](https://github.com/ankidroid/Anki-Android/issues/6306)
-[#6307](https://github.com/ankidroid/Anki-Android/pull/6307)
+<br>[#6377](https://github.com/ankidroid/Anki-Android/pull/6377) 
+<br>[#6307](https://github.com/ankidroid/Anki-Android/pull/6307) 
+<br>[#6388](https://github.com/ankidroid/Anki-Android/pull/6388) 
+<br>[#6393](https://github.com/ankidroid/Anki-Android/pull/6393) 
+
+# For more visit
+[AnkiDroid Javascript API](https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-Javascript-API)
 
 ### Usage
 1. Turn on Gestures in AnkiDroid 
