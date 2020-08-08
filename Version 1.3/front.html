@@ -1,0 +1,53 @@
+<div style="display:inline;" class="card-count">
+    <table style="width:28%; margin: 0 auto;">
+        <tbody>
+            <tr>
+            <tr id="card_count_dot" class="card-count-dot">
+                <td style="color:#2196f3;">&#8226;</td>
+                <td style="color:#ea2322;">&#8226;</td>
+                <td style="color:#4caf50;">&#8226;</td>
+            </tr>
+            <tr class="card-count-num">
+                <td style="color:#2196f3;" id="newCard"></td>
+                <td style="color:#ea2322;" id="learnCard"></td>
+                <td style="color:#4caf50;" id="reviewCard"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="deck_title" class="title">{{Subdeck}}</div>
+<div class="time-left" id="timeID"> </div>
+
+<script>
+    var UA = navigator.userAgent;
+
+    var isMobile = /Android/i.test(UA);
+    var isAndroidWebview = /wv/i.test(UA);
+
+    if (isMobile) {
+        // Here all AnkiDroid defined functions call. 
+        // It will be hidden or not called on AnkiDesktop / AnkiMobile
+
+        if (isAndroidWebview) {
+            // Available only to AnkiDroid app only.
+
+            document.getElementById("newCard").innerText = AnkiDroidJS.ankiGetNewCardCount();
+            document.getElementById("learnCard").innerText = AnkiDroidJS.ankiGetLrnCardCount();
+            document.getElementById("reviewCard").innerText = AnkiDroidJS.ankiGetRevCardCount();
+
+            var t = AnkiDroidJS.ankiGetETA();
+            document.getElementById("timeID").innerHTML = t + " mins.";
+        }
+    } else {
+        document.getElementById("card_count_dot").style.display = "none";
+        document.getElementById("deck_title").style.display = "none";
+    }
+</script>
+
+<div>{{Pinyin}}</div>
+<div>{{Meaning}}</div>
+
+<div class="button-container">
+    <button class="button" onclick="showAnswer();" style="background-color: #4caf50;"><i
+            class="material-icons">visibility</i></button>
+</div>
