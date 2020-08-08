@@ -9,6 +9,8 @@ Use AnkiDroid JavaScript functions to get cards details and design card like bel
 
 ### Download Decks
 
+[Decks](Decks/)
+
 ### Usage
 1. Turn on Gestures in AnkiDroid 
 2. Map all Swipe gestures to No Action

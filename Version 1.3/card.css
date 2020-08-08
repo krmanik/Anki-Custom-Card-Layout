@@ -135,25 +135,6 @@
         opacity: .8;
     }
 
-    /*https://codepen.io/AmrSubZero/pen/Byybom*/
-
-    .progress {
-        margin: 20px auto;
-        padding: 0;
-        width: 90%;
-        height: 8px;
-        overflow: hidden;
-        background: #e5e5e5;
-        border-radius: 6px;
-    }
-
-    .bar {
-        position: relative;
-        float: left;
-        height: 100%;
-        background: cornflowerblue;
-    }
-
     /* START grid */
 
     .grid-color {
