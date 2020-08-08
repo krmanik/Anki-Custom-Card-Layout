@@ -1,7 +1,9 @@
-# Anki-Custom-Card-Layout
+# AnkiDroid Custom Card Layout
 
 Use AnkiDroid JavaScript functions to get cards details and design card like below. Turn on fullscreen and start reviewing in your custom Anki design.
 
+# Demo
+<img src="images/demo_v1.3.gif" height="500px"/>
 
 # For more visit
 - [AnkiDroid Javascript API](https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-Javascript-API)
