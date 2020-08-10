@@ -1,0 +1,284 @@
+.card {
+    --color-el-symbol: white;
+    --color-el-name: #6f8a91;
+    --color-el-mass: #6f8a91;
+    --color-el-number: #6f8a91;
+    --card-q-background: #2ad4ff;
+
+    --color-flag-menu: #d5f6ff;
+    --icon-button-background-focus: #ffde00;
+
+    font-family: arial;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
+/* question card layout */
+
+.card-q {
+    position: relative;
+    margin-left: 60px;
+    margin-right: 60px;
+    background-color: var(--card-q-background);
+    top: 60px;
+    border-radius: 6px;
+}
+
+/* Material Icon Font */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 300;
+    src: url(MaterialIcons-Regular.eot);
+    /* For IE6-8 */
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url(_MaterialIcons-Regular.woff2) format('woff2'), url(_MaterialIcons-Regular.woff) format('woff'), url(_MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+/* element symbol */
+
+.el-symbol {
+    font-size: 100px;
+    color: var(--color-el-symbol);
+}
+
+/* element name */
+
+.el-name {
+    color: var(--color-el-name);
+}
+
+/* element mass */
+
+.el-mass {
+    padding-top: 15px;
+    color: var(--color-el-mass);
+}
+
+/* element number */
+
+.el-number {
+    position: absolute;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 35px;
+    color: var(--color-el-number);
+}
+
+.button {
+    background-color: #00aad4;
+    border: none;
+    color: white;
+    padding: 6px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 6px;
+    outline: none;
+}
+
+.button:active {
+    background-color: #00aaf4;
+}
+
+.icon {
+    color: white;
+    position: relative;
+    background-color: #ffcc00;
+    border: none;
+    margin: 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    outline: none;
+    border-radius: 6px;
+    width: 2rem;
+    height: 2rem;
+    z-index: 1;
+}
+
+.icon .material-icons {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0.3rem;
+    top: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.icon:hover, .icon:focus {
+    background-color: var(--icon-button-background-focus);
+}
+
+.icon .flag-btn {}
+
+/* answer button 1 */
+
+.ans1 {
+    background-color: #ff6600;
+}
+
+.ans1:active {
+    background-color: #ff3300;
+}
+
+/* answer button 2 */
+
+.ans2 {
+    background-color: #37c8ab;
+}
+
+.ans2:active {
+    background-color: #37b5ab;
+}
+
+/* answer button 3 */
+
+.ans3 {
+    background-color: #5fd369;
+}
+
+.ans3:active {
+    background-color: #5fd333;
+}
+
+/* answer button 4 */
+
+.ans4 {
+    background-color: #5599ff;
+}
+
+.ans4:active {
+    background-color: #558eff;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    left: 10px;
+}
+
+header2 {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    left: 10px;
+}
+
+.title {
+    float: left;
+    color: #6f7c91;
+}
+
+.time-count {
+    float: left;
+    color: #ff7f2a;
+}
+
+.card-count {
+    z-index: -1;
+    float: right;
+}
+
+time {}
+
+.mark-card {
+    color: white;
+}
+
+.flag-list {
+    display: none;
+    position: absolute;
+    float: right;
+    top: 65px;
+    right: 0;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.flags {
+    background: white;
+    position: relative;
+    border: none;
+    border-style: solid;
+    margin: 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    outline: none;
+    border-radius: 6px;
+    width: 2rem;
+    height: 2rem;
+    z-index: 1;
+}
+
+.flags .material-icons {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0.2rem;
+    top: 0.2rem;
+    transition: all 0.3s ease;
+}
+
+.flags:hover, .flags:focus {
+    background: #f2f2f2;
+    --color-flag-menu: white;
+}
+
+.no-flag {
+    color: #cccccc;
+}
+
+.red-flag {
+    color: red;
+}
+
+.orange-flag {
+    color: orange;
+}
+
+.green-flag {
+    color: green;
+}
+
+.blue-flag {
+    color: blue;
+}
+
+footer {
+    padding-bottom: 50px;
+    height: 25px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}

@@ -1,0 +1,33 @@
+{{FrontSide}}
+
+<script>
+    // Show answer
+
+    document.getElementById('elNum').innerHTML = '{{AtomicNumber}}';
+    document.getElementById('elMass').innerHTML = '{{AtomicMass}}';
+    document.getElementById('elName').innerHTML = '{{Name}}';
+
+    var UA1 = navigator.userAgent;
+
+    var isMobile = /Android/i.test(UA1);
+    var isAndroidWebview = /wv/i.test(UA1);
+
+    if (isMobile) {
+        if (isAndroidWebview) {
+            var isFullScreen = AnkiDroidJS.ankiIsInFullscreen();
+            if (isFullScreen) {
+                document.getElementById("showAns").style.display = "none";
+                document.getElementById("answerButtons").style.display = "block";
+            } else {
+                hideAll();
+            }
+        }
+    } else {
+        document.getElementById("timeCount").style.display = "none";
+        document.getElementById("cardCount").style.display = "none";
+        document.getElementById("btnFlag").style.display = "none";
+        document.getElementById("btnMarkCard").style.display = "none";
+        document.getElementById("showAns").style.display = "none";
+        document.getElementById("answerButtons").style.display = "none";
+    }
+</script>
