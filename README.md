@@ -40,6 +40,13 @@ All functionality of AnkiDroid JS API get **hidden** on AnkiMobile.
 ## Demo
 <img src="images/demo_v1.3.gif" height="500px"/>
 
+# Contribution
+Share custom card design made using AnkiDroid JS API.
+- front card template, ```front.html```
+- back card template, ```back.html```
+- card template css, ```card.css```
+- Sample deck
+
 # For more visit
 - [AnkiDroid Javascript API](https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-Javascript-API)
 - [Related PR](https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-Javascript-API#linked-issues--pr)
