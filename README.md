@@ -33,8 +33,7 @@ All functionality of AnkiDroid JS API get **hidden** on AnkiDesktop.
 
 ### AnkiMobile
 All functionality of AnkiDroid JS API get **hidden** on AnkiMobile.
-
-|![](images/ankimobile_1.PNG)|![](images/ankimobile_2.PNG)|
+|<img src="images/ankimobile_1.PNG" height="500px"/>|<img src="images/ankimobile_2.PNG" height="500px"/>|
 |--|--|
 
 # Example 2
