@@ -3,7 +3,7 @@
 Use AnkiDroid JavaScript functions to get cards details and design card like below. Turn on full screen and start reviewing in your custom Anki design. The API can also be used to hide JS API features on AnkiDesktop and AnkiMobile.
 
 **Note: AnkiDroid alpha *parallel* version can be downloaded for testing it.**
-- AnkiDroid version > 2.13 
+<br>AnkiDroid version > 2.13 
 - [AnkiDroid Release Page](https://github.com/ankidroid/Anki-Android/releases)
 
 ### Download Example Decks
@@ -19,16 +19,20 @@ Use AnkiDroid JavaScript functions to get cards details and design card like bel
 # Example 1
 ## Demo
 ### AnkiDroid
+```
+Custom design for show answer button, /Again/Hard/Good/Easy/ button, 
+mark card, toggle flag, review time, card count etc.
+```
 <img src="images/demo_example1.gif" height="500px"/>
 
 ### AnkiDesktop
-All functionality of AnkiDroid JS API get hidden on AnkiDesktop.
+All functionality of AnkiDroid JS API get **hidden** on AnkiDesktop.
 
 |![](images/desktop_1.PNG)|![](images/desktop_2.PNG)|
 |--|--|
 
 ### AnkiMobile
-All functionality of AnkiDroid JS API get hidden on AnkiMobile.
+All functionality of AnkiDroid JS API get **hidden** on AnkiMobile.
 
 |![](images/ankimobile_1.PNG)|![](images/ankimobile_2.PNG)|
 |--|--|
