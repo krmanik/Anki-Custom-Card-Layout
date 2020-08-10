@@ -23,12 +23,12 @@ Use AnkiDroid JavaScript functions to get cards details and design card like bel
 ### AnkiDesktop
 All functionality of AnkiDroid JS API get hidden on AnkiDesktop.
 
-|![](images/desktop_1.png)|![](images/desktop_2.png)|
+|![](images/desktop_1.PNG)|![](images/desktop_2.PNG)|
 |--|--|
 
 ### AnkiMobile
 
-|![](images/ankimobile_1.png)|![](images/ankimobile_2.png)|
+|![](images/ankimobile_1.PNG)|![](images/ankimobile_2.PNG)|
 |--|--|
 
 # Example 2
