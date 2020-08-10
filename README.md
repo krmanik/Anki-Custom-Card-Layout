@@ -13,7 +13,7 @@ Use AnkiDroid JavaScript functions to get cards details and design card like bel
 1. Turn on Gestures in AnkiDroid 
 2. Map all Swipe gestures to No Action
 3. Turn on Full Screen
-4. Now Open the Sample Deck
+4. Now Open the downloaded decks
 
 # Example 1
 ## Demo
