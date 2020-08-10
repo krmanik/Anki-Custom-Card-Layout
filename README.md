@@ -1,19 +1,20 @@
 # AnkiDroid Custom Card Layout
 
-Use AnkiDroid JavaScript functions to get cards details and design card like below. Turn on fullscreen and start reviewing in your custom Anki design.
+Use AnkiDroid JavaScript functions to get cards details and design card like below. Turn on full screen and start reviewing in your custom Anki design. The API can also be used to hide JS API features on AnkiDesktop and AnkiMobile.
 
-**Note: AnkiDroid alpha *parallel* version can be downloaded for testing it.** 
-[AnkiDroid Release Page](https://github.com/ankidroid/Anki-Android/releases)
+**Note: AnkiDroid alpha *parallel* version can be downloaded for testing it.**
+- AnkiDroid version > 2.13 
+- [AnkiDroid Release Page](https://github.com/ankidroid/Anki-Android/releases)
 
-### Download Decks
+### Download Example Decks
 
-[Decks](Decks/)
+- [Decks](Decks/)
 
 ### Usage
 1. Turn on Gestures in AnkiDroid 
 2. Map all Swipe gestures to No Action
 3. Turn on Full Screen
-4. Now Open the downloaded decks
+4. Now open the downloaded decks
 
 # Example 1
 ## Demo
@@ -27,6 +28,7 @@ All functionality of AnkiDroid JS API get hidden on AnkiDesktop.
 |--|--|
 
 ### AnkiMobile
+All functionality of AnkiDroid JS API get hidden on AnkiMobile.
 
 |![](images/ankimobile_1.PNG)|![](images/ankimobile_2.PNG)|
 |--|--|
