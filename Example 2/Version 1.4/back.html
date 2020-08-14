@@ -2,7 +2,8 @@
 
 <script>
     // Show answer
- document.getElementById('elNum').innerHTML = '{{AtomicNumber}}';
+
+    document.getElementById('elNum').innerHTML = '{{AtomicNumber}}';
     document.getElementById('elMass').innerHTML = '{{AtomicMass}}';
     document.getElementById('elName').innerHTML = '{{Name}}';
 
@@ -22,11 +23,6 @@
             }
         }
     } else {
-        document.getElementById("timeCount").style.display = "none";
-        document.getElementById("cardCount").style.display = "none";
-        document.getElementById("btnFlag").style.display = "none";
-        document.getElementById("btnMarkCard").style.display = "none";
-        document.getElementById("showAns").style.display = "none";
-        document.getElementById("answerButtons").style.display = "none";
+        hideAll();
     }
 </script>

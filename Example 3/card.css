@@ -1,0 +1,227 @@
+@font-face {
+    font-family: Orbitron-Regular;
+    src: url(Orbitron-Regular.ttf);
+}
+
+.card {
+    --card-q-background: #2ad4ff;
+    --color-flag-menu: #d5f6ff;
+    --icon-button-background-focus: #ffde00;
+    --transparent-background-color: #ffffff00;
+    --button-text-color: limegreen;
+    --ans1-button-text-color: #F44336;
+    --ans2-button-text-color: #FF9800;
+    --ans3-button-text-color: #4CAF50;
+    --ans4-button-text-color: #2196F3;
+    font-family: Orbitron-Regular;
+    font-size: 20px;
+    text-align: center;
+    color: limegreen;
+    background-color: #262626;
+}
+
+.card.night_mode {}
+
+/* question card layout */
+
+.card-q {
+    position: relative;
+    margin-left: 60px;
+    margin-right: 60px;
+    text-align: left;
+    top: 80px;
+}
+
+.hack-progress {
+    width: 100%;
+    border-radius: 2px;
+    background-color: #ffffff1f;
+}
+
+.hack-progress-bar {
+    width: 1%;
+    height: 12px;
+    border-radius: 2px;
+    background-color: limegreen;
+}
+
+.command-ans {
+    padding: 20px;
+    display: inline-block;
+}
+
+.command-ans-prompt {
+    display: inline-block;
+    color: red;
+}
+
+.try-it-window {
+    border: none;
+    border-style: solid;
+    width: 100%;
+    height: 150px;
+}
+
+.wiki {
+    color: lime;
+    font-size: 14px;
+}
+
+.button {
+    background-color: var(--transparent-background-color);
+    border: none;
+    color: var(--button-text-color);
+    padding: 3px 1.5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 2px 2px;
+    cursor: pointer;
+    outline: none;
+    border-style: solid;
+}
+
+.button:active {
+    background-color: #ff3300;
+}
+
+/* answer button 1 */
+
+.ans1 {
+    width: 20%;
+    color: var(--ans1-button-text-color);
+    background-color: var(--transparent-background-color);
+}
+
+.ans1:active {
+    background-color: #ff3300;
+}
+
+/* answer button 2 */
+
+.ans2 {
+    color: var(--ans2-button-text-color);
+    width: 20%;
+    background-color: var(--transparent-background-color);
+}
+
+.ans2:active {
+    background-color: #37b5ab;
+}
+
+/* answer button 3 */
+
+.ans3 {
+    color: var(--ans3-button-text-color);
+    width: 20%;
+    background-color: var(--transparent-background-color);
+}
+
+.ans3:active {
+    background-color: #5fd333;
+}
+
+/* answer button 4 */
+
+.ans4 {
+    color: var(--ans4-button-text-color);
+    width: 20%;
+    background-color: var(--transparent-background-color);
+}
+
+.ans4:active {
+    background-color: #558eff;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    left: 10px;
+}
+
+header2 {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    left: 10px;
+}
+
+.title {
+    float: left;
+    color: #6f7c91;
+}
+
+.time-count {
+    float: left;
+    color: #ff7f2a;
+}
+
+.card-count {
+    z-index: -1;
+    float: right;
+}
+
+time {}
+
+.mark-card {
+    display: inline-block;
+    border-style: solid;
+    color: #c6c6c6bf;
+}
+
+.flag-card {
+    display: inline-block;
+    border-style: solid;
+    color: #c6c6c6bf;
+}
+
+.flag-list {
+    display: none;
+    position: absolute;
+    float: right;
+    top: 65px;
+    right: 8px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.no-flag {
+    margin: 2px;
+    border-style: solid;
+    color: #c6c6c6bf;
+}
+
+.red-flag {
+    margin: 2px;
+    border-style: solid;
+    color: red;
+}
+
+.orange-flag {
+    margin: 2px;
+    border-style: solid;
+    color: orange;
+}
+
+.green-flag {
+    margin: 2px;
+    border-style: solid;
+    color: green;
+}
+
+.blue-flag {
+    margin: 2px;
+    border-style: solid;
+    color: blue;
+}
+
+footer {
+    padding-bottom: 50px;
+    height: 25px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}

@@ -1,0 +1,33 @@
+{{FrontSide}}
+
+
+<script>
+    var practice_in_termux = true;
+
+    document.getElementById('command').innerHTML = '<div class="command-ans"><div class="command-ans-prompt">$</div> {{Command}}</div>';
+    document.getElementById('wiki').innerHTML = '# <a class="wiki" href="{{Wiki}}">View Wiki</a>';
+
+    // try it in termux
+    if (practice_in_termux) {
+        document.getElementById('try-it-in-termux').innerHTML = "<iframe class='try-it-window'></iframe>";
+    }
+
+    var UA1 = navigator.userAgent;
+
+    var isMobile = /Android/i.test(UA1);
+    var isAndroidWebview = /wv/i.test(UA1);
+
+    if (isMobile) {
+        if (isAndroidWebview) {
+            var isFullScreen = AnkiDroidJS.ankiIsInFullscreen();
+            if (isFullScreen) {
+                document.getElementById("showAns").style.display = "none";
+                document.getElementById("answerButtons").style.display = "block";
+            } else {
+                hideAll();
+            }
+        }
+    } else {
+        //hideAll();
+    }
+</script>

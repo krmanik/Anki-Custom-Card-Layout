@@ -1,6 +1,6 @@
 # AnkiDroid Custom Card Layout
 
-Use AnkiDroid JavaScript functions to get cards details and design card like below. Turn on full screen and start reviewing in your custom Anki design. The API can also be used to hide JS API features on AnkiDesktop and AnkiMobile.
+Use AnkiDroid JavaScript functions to get cards details and design card like below. Turn on full screen and start reviewing in your custom Anki design. The API can also be used to hide JS API features on AnkiDesktop and AnkiMobile
 
 **Note: AnkiDroid alpha *parallel* version can be downloaded for testing it.**
 <br>AnkiDroid version > 2.13 
@@ -17,28 +17,23 @@ Use AnkiDroid JavaScript functions to get cards details and design card like bel
 4. Now open the downloaded decks
 
 # Example 1
-## Demo
-### AnkiDroid
 ```
 Custom design for show answer button, /Again/Hard/Good/Easy/ button, 
 mark card, toggle flag, review time, card count etc.
 ```
-<img src="images/demo_example1.gif" height="500px"/>
-
-### AnkiDesktop
-All functionality of AnkiDroid JS API get **hidden** on AnkiDesktop.
-
-|![](images/desktop_1.PNG)|![](images/desktop_2.PNG)|
-|--|--|
-
-### AnkiMobile
-All functionality of AnkiDroid JS API get **hidden** on AnkiMobile.
-|<img src="images/ankimobile_1.PNG" height="500px"/>|<img src="images/ankimobile_2.PNG" height="500px"/>|
-|--|--|
+### Demo
+<img src="images/demo_example_1_v1.4.gif" height="500px"/>
 
 # Example 2
-## Demo
 <img src="images/demo_v1.3.gif" height="500px"/>
+
+# Example 3
+<img src="images/demo_example_3.gif" height="500px"/>
+
+- progress bar
+- 110 commands
+- font ```Orbitron```
+- open ttyd in termux and view in ankidroid using ```iframe```. For more view [Add ttyd to termux and practice command](https://simplezhongwen.blogspot.com/2020/08/practice-linux-commands-using-ankidroid.html)
 
 # Contribution
 Share custom card design made using AnkiDroid JS API.
@@ -46,6 +41,9 @@ Share custom card design made using AnkiDroid JS API.
 - back card template, ```back.html```
 - card template css, ```card.css```
 - Sample deck
+
+# Todo
+- To add example commands to ```example 3``` deck
 
 # For more visit
 - [AnkiDroid Javascript API](https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-Javascript-API)
@@ -58,3 +56,9 @@ Share custom card design made using AnkiDroid JS API.
 - [grid.layoutit.com](https://grid.layoutit.com/)
 - [codepen.io](https://codepen.io/)
 - [www.w3schools.com](https://www.w3schools.com/)
+
+### License
+**Anki-Custom-Card-Layout**
+<br>Mani (Infinyte7)
+<br> Must give attribution, if using full or part of this project.
+<br>[CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)

@@ -1,0 +1,220 @@
+<!-- anki-persistence -->
+<script>
+    // v0.5.2 - https://github.com/SimonLammer/anki-persistence/blob/62463a7f63e79ce12f7a622a8ca0beb4c1c5d556/script.js
+    if (void 0 === window.Persistence) { var _persistenceKey = "github.com/SimonLammer/anki-persistence/", _defaultKey = "_default"; if (window.Persistence_sessionStorage = function () { var e = !1; try { "object" == typeof window.sessionStorage && (e = !0, this.clear = function () { for (var e = 0; e < sessionStorage.length; e++) { var t = sessionStorage.key(e); 0 == t.indexOf(_persistenceKey) && (sessionStorage.removeItem(t), e--) } }, this.setItem = function (e, t) { void 0 == t && (t = e, e = _defaultKey), sessionStorage.setItem(_persistenceKey + e, JSON.stringify(t)) }, this.getItem = function (e) { return void 0 == e && (e = _defaultKey), JSON.parse(sessionStorage.getItem(_persistenceKey + e)) }, this.removeItem = function (e) { void 0 == e && (e = _defaultKey), sessionStorage.removeItem(_persistenceKey + e) }) } catch (e) { } this.isAvailable = function () { return e } }, window.Persistence_windowKey = function (e) { var t = window[e], i = !1; "object" == typeof t && (i = !0, this.clear = function () { t[_persistenceKey] = {} }, this.setItem = function (e, i) { void 0 == i && (i = e, e = _defaultKey), t[_persistenceKey][e] = i }, this.getItem = function (e) { return void 0 == e && (e = _defaultKey), t[_persistenceKey][e] || null }, this.removeItem = function (e) { void 0 == e && (e = _defaultKey), delete t[_persistenceKey][e] }, void 0 == t[_persistenceKey] && this.clear()), this.isAvailable = function () { return i } }, window.Persistence = new Persistence_sessionStorage, Persistence.isAvailable() || (window.Persistence = new Persistence_windowKey("py")), !Persistence.isAvailable()) { var titleStartIndex = window.location.toString().indexOf("title"), titleContentIndex = window.location.toString().indexOf("main", titleStartIndex); titleStartIndex > 0 && titleContentIndex > 0 && titleContentIndex - titleStartIndex < 10 && (window.Persistence = new Persistence_windowKey("qt")) } }
+</script>
+<!----------->
+
+<header>
+    <div id="deckTitle" style="float:left;">{{Deck}}</div>
+    <div style="float:right; font-size:16px;">
+        <div id="btnMarkCard" class="mark-card" onclick="markCard()">&nbsp;*&nbsp;</div>&nbsp;&nbsp;<div id="btnFlag"
+            class="flag-card" onclick="showFlagList()">&nbsp;f&nbsp;</div>
+    </div>
+</header>
+<header2>
+    <div class="hack-progress" id="h-progress">
+        <div class="hack-progress-bar" id="h-bar"></div>
+    </div>
+    <div id="timeCount" style="font-size:16px;"></div>
+</header2>
+
+<div id="flagList" class="flag-list">
+    <div onclick="noFlagClicked()" class="flags no-flag">&nbsp;f&nbsp;</div>
+    <div onclick="redFlagClicked()" class="flags red-flag">&nbsp;f&nbsp;</div>
+    <div onclick="orangeFlagClicked()" class="flags orange-flag">&nbsp;f&nbsp;</div>
+    <div onclick="greenFlagClicked()" class="flags green-flag">&nbsp;f&nbsp;</div>
+    <div onclick="blueFlagClicked()" class="flags blue-flag">&nbsp;f&nbsp;</div>
+</div>
+
+<div class="card-q">
+    <div id="info"># {{Info}}</div>
+    <div id="command"></div>
+
+    <div id="try-it-in-termux"></div>
+
+    <div id="wiki" class="wiki"></div>
+</div>
+
+<div id="try-it"></div>
+
+<footer>
+    <div id="showAns" onclick="showAnswer()" class="button">Show Answer</div>
+
+    <div id="answerButtons" style="display:none">
+        <div id="answerButton1" onclick="buttonAnswerEase1()" class="button ans1"><time id="time1">
+            </time><br>Again</div>
+        <div id="answerButton2" onclick="buttonAnswerEase2()" class="button ans2"><time id="time2">
+            </time><br>Hard</div>
+        <div id="answerButton3" onclick="buttonAnswerEase3()" class="button ans3"><time id="time3">
+            </time><br>Good</div>
+        <div id="answerButton4" onclick="buttonAnswerEase4()" class="button ans4"><time id="time4">
+            </time><br>Easy</div>
+    </div>
+</footer>
+
+<script>
+    var UA = navigator.userAgent;
+
+    var isMobile = /Android/i.test(UA);
+    var isAndroidWebview = /wv/i.test(UA);
+
+    if (isMobile && isAndroidWebview) {
+        var isFullScreen = AnkiDroidJS.ankiIsInFullscreen();
+        if (isFullScreen) {
+            init();
+        } else {
+            hideAll();
+        }
+
+    } else {
+        //hideAll();
+    }
+
+    function hideAll() {
+        document.getElementById("deckTitle").style.display = "none";
+        document.getElementById("h-progress").style.display = "none";
+        document.getElementById("timeCount").style.display = "none";
+        document.getElementById("btnFlag").style.display = "none";
+        document.getElementById("btnMarkCard").style.display = "none";
+        document.getElementById("showAns").style.display = "none";
+        document.getElementById("answerButtons").style.display = "none";
+    }
+
+    // get mark, flag, next time review and change text, show/hide answer buttons
+    function init() {
+
+        var jsApi = { "version": "0.0.1", "developer": "https://github.com/infinyte7" };
+
+        var apiStatus = AnkiDroidJS.init(JSON.stringify(jsApi));   // important --> init
+        console.log(apiStatus);
+
+        document.getElementById("timeCount").innerText = AnkiDroidJS.ankiGetETA() + " mins.";
+
+        var cardCount = parseInt(AnkiDroidJS.ankiGetNewCardCount()) + parseInt(AnkiDroidJS.ankiGetLrnCardCount()) + parseInt(AnkiDroidJS.ankiGetRevCardCount());
+
+        var totalCardCount = 1;
+        if (Persistence.isAvailable()) {
+            totalCardCount = Persistence.getItem("total");
+            if (totalCardCount == null) {
+                totalCardCount = cardCount;    // count set to total card count at first card, it will not change for current session
+                Persistence.setItem("total", totalCardCount);
+            }
+        }
+
+        // progress bar percentage
+        var per = Math.trunc(100 - cardCount * 100 / totalCardCount);
+        document.getElementById("h-bar").style.width = per + "%";
+
+        if (AnkiDroidJS.ankiGetCardMark()) {
+            markedC = true;
+            document.getElementById("btnMarkCard").style.color = 'limegreen';
+        }
+
+        var flag = AnkiDroidJS.ankiGetCardFlag();
+
+        switch (flag) {
+            case 1:
+                document.getElementById('btnFlag').style.color = "red";
+                break;
+
+            case 2:
+                document.getElementById('btnFlag').style.color = "orange";
+                break;
+
+            case 3:
+                document.getElementById('btnFlag').style.color = "green";
+                break;
+
+            case 4:
+                document.getElementById('btnFlag').style.color = "blue";
+                break;
+
+            default:
+                document.getElementById('btnFlag').style.color = "#c6c6c6bf";
+        }
+
+
+        if (!AnkiDroidJS.ankiGetNextTime1()) {
+            document.getElementById("answerButton1").style.display = "none";
+        } else {
+            document.getElementById("time1").innerText = AnkiDroidJS.ankiGetNextTime1();
+        }
+
+        if (!AnkiDroidJS.ankiGetNextTime2()) {
+            document.getElementById("answerButton2").style.display = "none";
+        } else {
+            document.getElementById("time2").innerText = AnkiDroidJS.ankiGetNextTime2();
+        }
+
+        if (!AnkiDroidJS.ankiGetNextTime3()) {
+            document.getElementById("answerButton3").style.display = "none";
+        } else {
+            document.getElementById("time3").innerText = AnkiDroidJS.ankiGetNextTime3();
+        }
+
+        if (!AnkiDroidJS.ankiGetNextTime4()) {
+            document.getElementById("answerButton4").style.display = "none";
+        } else {
+            document.getElementById("time4").innerText = AnkiDroidJS.ankiGetNextTime4();
+        }
+    }
+
+    //ankiGetCardMark()--> true change markedC value 
+    var markedC = false;
+    function markCard() {
+        ankiMarkCard();
+        markedC = !markedC;
+        if (markedC) {
+            document.getElementById("btnMarkCard").style.color = 'limegreen';
+        } else {
+            document.getElementById("btnMarkCard").style.color = '#c6c6c6bf';
+        }
+    }
+
+    function showFlagList() {
+        if (document.getElementById('flagList').style.display != "block") {
+            document.getElementById('flagList').style.display = "block";
+        } else {
+            document.getElementById('flagList').style.display = "none";
+        }
+    }
+
+    function noFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').style.color = "#c6c6c6bf";
+        ankiToggleFlag('none');
+    }
+
+    function redFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').style.color = "red";
+        ankiToggleFlag('red');
+    }
+
+    function orangeFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').style.color = "orange";
+        ankiToggleFlag('orange');
+    }
+
+    function greenFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').style.color = "green";
+        ankiToggleFlag('green');
+    }
+
+    function blueFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').style.color = "blue";
+        ankiToggleFlag('blue');
+    }
+
+    window.onclick = function (event) {
+        if (!document.getElementsByClassName('flag-list')[0].contains(event.target) && !document.getElementsByClassName('flag-card')[0].contains(event.target)) {
+
+            document.getElementById('flagList').style.display = "none";
+
+        }
+    }
+</script>
