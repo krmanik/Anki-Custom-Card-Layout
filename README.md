@@ -53,6 +53,7 @@ Share custom card design made using AnkiDroid JS API.
 - [Related PR](https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-Javascript-API#linked-issues--pr)
 
 ### Resources
+- [1-Line Layouts](https://1linelayouts.glitch.me/)
 - [JavascriptInterface](https://developer.android.com/reference/android/webkit/JavascriptInterface)
 - [pass-non-primitive-object-from-java-to-js-by-android](https://stackoverflow.com/questions/21173888/how-to-pass-non-primitive-object-from-java-to-js-by-android-addjavascriptinterfa)
 - [check-if-a-string-is-a-valid-number](https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number)
