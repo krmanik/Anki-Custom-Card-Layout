@@ -39,7 +39,7 @@ mark card, toggle flag, review time, card count etc.
 <img src="images/demo_example_4.gif" height="500px"/>
 
 - Neumorphism design (Credits: [Codepen/myacode](https://codepen.io/myacode/pen/PoqQQNM )) 
-- smooth progress bar
+- smooth progress bar (View [front.html](https://github.com/infinyte7/Anki-Custom-Card-Layout/blob/master/Example%204/front.html#L315))
 - HSK1 word lists
 - Random select from ```[Simplified, Traditional, Pinyin, Meaning]``` for quiz at front
 - Audio
