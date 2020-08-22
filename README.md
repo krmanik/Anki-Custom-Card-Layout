@@ -35,6 +35,17 @@ mark card, toggle flag, review time, card count etc.
 - font ```Orbitron```
 - open ttyd in termux and view in ankidroid using ```iframe```. For more view [Add ttyd to termux and practice command](https://simplezhongwen.blogspot.com/2020/08/practice-linux-commands-using-ankidroid.html)
 
+# Example 4
+<img src="images/demo_example_4.gif" height="500px"/>
+
+- Neumorphism design (Credits: [Codepen/myacode](https://codepen.io/myacode/pen/PoqQQNM )) 
+- smooth progress bar
+- HSK1 word lists
+- Random select from ```[Simplified, Traditional, Pinyin, Meaning]``` for quiz at front
+- Audio
+
+(Not supported night mode)
+
 # Disclaimer
 The software, code and website links available in this GitHub repo are provided "as is" without warranty of any kind, either express or implied. <br/>**Use at your own risk.**
 

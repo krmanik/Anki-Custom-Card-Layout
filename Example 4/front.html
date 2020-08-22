@@ -1,0 +1,327 @@
+<header>
+    <div class="progress-1" id="h-progress">
+        <div class="progress-bar-1" id="h-bar"></div>
+    </div>
+</header>
+
+<header2>
+
+    <div id="deckTitle" class="title">{{Subdeck}} <div id="timeCount" class="time-count"></div>
+    </div>
+
+    <div id="btnFlag" onclick="showFlagList();" style="float:right;" class="icon flag-btn">
+        <i class="material-icons">flag</i>
+    </div>
+
+    <div id="btnMarkCard" type="checkbox" class="icon" onclick="markCard()" style="float:left;">
+        <i class="material-icons">star_outline</i>
+    </div>
+
+</header2>
+
+<div id="flagList" class="flag-list">
+    <a onclick="noFlagClicked()" class="flags no-flag" href="#">
+        <i class="material-icons">flag</i>
+    </a>
+    <a onclick="redFlagClicked()" class="flags red-flag" href="#">
+        <i class="material-icons">flag</i>
+    </a>
+    <a onclick="orangeFlagClicked()" class="flags orange-flag" href="#">
+        <i class="material-icons">flag</i>
+    </a>
+    <a onclick="greenFlagClicked()" class="flags green-flag" href="#">
+        <i class="material-icons">flag</i>
+        <a onclick="blueFlagClicked()" class="flags blue-flag" href="#">
+            <i class="material-icons">flag</i>
+        </a>
+</div>
+
+<br />
+
+<div id="quesCard" class="card-q">
+
+    <div id="chPinyin" class="ch-pin-text">{{Pinyin}}</div>
+    <div class="ch-sim-text">
+        <div id="chSimplified">{{Simplified}}</div>
+        <div id="chTraditional" class="ch-trad-text">{{Traditional}}</div>
+    </div>
+    <div id="chMeaning" class="ch-mean-text">{{Meaning}}</div>
+
+    <div id="chAudio" class="icon" style="color:#37c871; float:right;"><i class="material-icons">volume_up</i></div>
+
+</div>
+
+
+<footer>
+
+    <div type="button" id="showAns" onclick="showAnswer()" class="show-ans-button">Show Answer</div>
+
+    <div id="answerButtons" class="ans-buttons-bottom" style="display:none;">
+        <div id="answerButton1" onclick="buttonAnswerEase1()" class="ans-buttons ans1"><time id="time1">
+            </time>Again</div>
+        <div id="answerButton2" onclick="buttonAnswerEase2()" class="ans-buttons ans2"><time id="time2">
+            </time>Hard</div>
+        <div id="answerButton3" onclick="buttonAnswerEase3()" class="ans-buttons ans3"><time id="time3">
+            </time>Good</div>
+        <div id="answerButton4" onclick="buttonAnswerEase4()" class="ans-buttons ans4"><time id="time4">
+            </time>Easy</div>
+    </div>
+
+</footer>
+
+<!-- anki-persistence -->
+<script>
+    // v0.5.2 - https://github.com/SimonLammer/anki-persistence/blob/62463a7f63e79ce12f7a622a8ca0beb4c1c5d556/script.js
+    if (void 0 === window.Persistence) { var _persistenceKey = "github.com/SimonLammer/anki-persistence/", _defaultKey = "_default"; if (window.Persistence_sessionStorage = function () { var e = !1; try { "object" == typeof window.sessionStorage && (e = !0, this.clear = function () { for (var e = 0; e < sessionStorage.length; e++) { var t = sessionStorage.key(e); 0 == t.indexOf(_persistenceKey) && (sessionStorage.removeItem(t), e--) } }, this.setItem = function (e, t) { void 0 == t && (t = e, e = _defaultKey), sessionStorage.setItem(_persistenceKey + e, JSON.stringify(t)) }, this.getItem = function (e) { return void 0 == e && (e = _defaultKey), JSON.parse(sessionStorage.getItem(_persistenceKey + e)) }, this.removeItem = function (e) { void 0 == e && (e = _defaultKey), sessionStorage.removeItem(_persistenceKey + e) }) } catch (e) { } this.isAvailable = function () { return e } }, window.Persistence_windowKey = function (e) { var t = window[e], i = !1; "object" == typeof t && (i = !0, this.clear = function () { t[_persistenceKey] = {} }, this.setItem = function (e, i) { void 0 == i && (i = e, e = _defaultKey), t[_persistenceKey][e] = i }, this.getItem = function (e) { return void 0 == e && (e = _defaultKey), t[_persistenceKey][e] || null }, this.removeItem = function (e) { void 0 == e && (e = _defaultKey), delete t[_persistenceKey][e] }, void 0 == t[_persistenceKey] && this.clear()), this.isAvailable = function () { return i } }, window.Persistence = new Persistence_sessionStorage, Persistence.isAvailable() || (window.Persistence = new Persistence_windowKey("py")), !Persistence.isAvailable()) { var titleStartIndex = window.location.toString().indexOf("title"), titleContentIndex = window.location.toString().indexOf("main", titleStartIndex); titleStartIndex > 0 && titleContentIndex > 0 && titleContentIndex - titleStartIndex < 10 && (window.Persistence = new Persistence_windowKey("qt")) } }
+</script>
+<!----------->
+
+<script>
+    // colors
+    var primaryLight = "#8abdff";
+    var primary = "#6d5dfc;";
+    var primaryDark = "#5b0eeb";
+    var greyDark = "#9baacf";
+
+    var flagNoneColor = "#9baacf";
+    var flagRedColor = "#f44336";
+    var flagBlueColor = "#2196f3";
+    var flagOrangeColor = "#ff9800";
+    var flagGreenColor = "#4caf50";
+
+    // Random select [Simplified, Traditional, Pinyin, Meaning], for quiz
+
+    var elemSim = document.getElementById("chSimplified");
+    var elemPin = document.getElementById("chPinyin");
+    var elemTrad = document.getElementById("chTraditional");
+    var elemMean = document.getElementById("chMeaning");
+    var elemAudio = document.getElementById("chAudio");
+    elemAudio.style.display = "none";
+
+
+    var elemList = [elemSim, elemTrad, elemPin, elemMean];
+
+    var random = Math.floor(Math.random() * elemList.length);
+    switch (random) {
+        case 0:
+            elemSim.style.display = "block";
+            elemTrad.style.display = "none";
+            elemMean.style.display = "none";
+            elemPin.style.display = "none";
+            break;
+        case 1:
+            elemSim.style.display = "none";
+            elemTrad.style.display = "block";
+            elemPin.style.display = "none";
+            elemMean.style.display = "none";
+            break;
+        case 2:
+            elemSim.style.display = "none";
+            elemTrad.style.display = "none";
+            elemPin.style.display = "block";
+            elemMean.style.display = "none";
+            break;
+        case 3:
+            elemSim.style.display = "none";
+            elemTrad.style.display = "none";
+            elemMean.style.display = "block";
+            elemPin.style.display = "none";
+            break;
+        default:
+            elemSim.style.display = "block";
+            elemTrad.style.display = "block";
+            elemPin.style.display = "block";
+            elemMean.style.display = "block";
+    }
+
+    var UA = navigator.userAgent;
+
+    var isMobile = /Android/i.test(UA);
+    var isAndroidWebview = /wv/i.test(UA);
+
+    if (isMobile && isAndroidWebview) {
+        var isFullScreen = AnkiDroidJS.ankiIsInFullscreen();
+        if (isFullScreen) {
+            init();
+        } else {
+            hideAll();
+        }
+
+    } else {
+        hideAll();
+    }
+
+    // hide all on AnkiDesktop and AnkiMobile
+    function hideAll() {
+        document.getElementById("deckTitle").style.display = "none";
+        document.getElementById("timeCount").style.display = "none";
+        document.getElementById("h-progress").style.display = "none";
+        document.getElementById("h-bar").style.display = "none";
+        document.getElementById("btnFlag").style.display = "none";
+        document.getElementById("btnMarkCard").style.display = "none";
+        document.getElementById("showAns").style.display = "none";
+        document.getElementById("answerButtons").style.display = "none";
+    }
+
+    // get mark, flag, next time review and change text, show/hide answer buttons
+    function init() {
+
+        var jsApi = { "version": "0.0.1", "developer": "https://github.com/infinyte7" };
+
+        var apiStatus = AnkiDroidJS.init(JSON.stringify(jsApi));   // important --> init
+        console.log(apiStatus);
+
+        document.getElementById("timeCount").innerText = AnkiDroidJS.ankiGetETA() + " mins.";
+
+        var cardCount = parseInt(AnkiDroidJS.ankiGetNewCardCount()) + parseInt(AnkiDroidJS.ankiGetLrnCardCount()) + parseInt(AnkiDroidJS.ankiGetRevCardCount());
+
+        var totalCardCount = 1;
+        if (Persistence.isAvailable()) {
+            totalCardCount = Persistence.getItem("total");
+            if (totalCardCount == null) {
+                totalCardCount = cardCount;    // count set to total card count at first card, it will not change for current session
+                Persistence.setItem("total", totalCardCount);
+            }
+        }
+
+        // progress bar percentage
+        var per = Math.trunc(100 - cardCount * 100 / totalCardCount) + "%";
+        document.getElementById("h-bar").style.width = per;
+
+        if (AnkiDroidJS.ankiGetCardMark()) {
+            markedC = true;
+            document.getElementById("btnMarkCard").innerHTML = '<i class="material-icons">star</i>';
+        }
+
+        var flag = AnkiDroidJS.ankiGetCardFlag();
+
+        switch (flag) {
+            case 1:
+                document.getElementById('btnFlag').className = "icon icon-selected";
+                document.getElementById('btnFlag').style.color = flagRedColor;
+                break;
+
+            case 2:
+                document.getElementById('btnFlag').className = "icon icon-selected";
+                document.getElementById('btnFlag').style.color = flagOrangeColor;
+                break;
+
+            case 3:
+                document.getElementById('btnFlag').className = "icon icon-selected";
+                document.getElementById('btnFlag').style.color = flagGreenColor;
+                break;
+
+            case 4:
+                document.getElementById('btnFlag').className = "icon icon-selected";
+                document.getElementById('btnFlag').style.color = flagBlueColor;
+                break;
+
+            default:
+                document.getElementById('btnFlag').style.color = flagNoneColor;
+        }
+
+        // Hide button when next time above button is empty
+        if (!AnkiDroidJS.ankiGetNextTime1()) {
+            document.getElementById("answerButton1").style.display = "none";
+        } else {
+            document.getElementById("time1").innerText = AnkiDroidJS.ankiGetNextTime1();
+        }
+
+        if (!AnkiDroidJS.ankiGetNextTime2()) {
+            document.getElementById("answerButton2").style.display = "none";
+        } else {
+            document.getElementById("time2").innerText = AnkiDroidJS.ankiGetNextTime2();
+        }
+
+        if (!AnkiDroidJS.ankiGetNextTime3()) {
+            document.getElementById("answerButton3").style.display = "none";
+        } else {
+            document.getElementById("time3").innerText = AnkiDroidJS.ankiGetNextTime3();
+        }
+
+        if (!AnkiDroidJS.ankiGetNextTime4()) {
+            document.getElementById("answerButton4").style.display = "none";
+        } else {
+            document.getElementById("time4").innerText = AnkiDroidJS.ankiGetNextTime4();
+        }
+    }
+
+    //ankiGetCardMark()--> true change markedC value 
+    var markedC = false;
+    function markCard() {
+        ankiMarkCard();
+        markedC = !markedC;
+        if (markedC) {
+            document.getElementById("btnMarkCard").className = "icon icon-selected";
+            document.getElementById("btnMarkCard").innerHTML = '<i class="material-icons">star</i>';
+        } else {
+            document.getElementById("btnMarkCard").className = "icon";
+            document.getElementById("btnMarkCard").innerHTML = '<i class="material-icons">star_outline</i>';
+        }
+    }
+
+    function showFlagList() {
+        if (document.getElementById('flagList').style.display != "block") {
+            document.getElementById('flagList').style.display = "block";
+        } else {
+            document.getElementById('flagList').style.display = "none";
+        }
+    }
+
+    function noFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').className = "icon";
+        document.getElementById('btnFlag').style.color = flagNoneColor;
+        ankiToggleFlag('none');
+    }
+
+    function redFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').className = "icon icon-selected";
+        document.getElementById('btnFlag').style.color = flagRedColor;
+        ankiToggleFlag('red');
+    }
+
+    function orangeFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').className = "icon icon-selected";
+        document.getElementById('btnFlag').style.color = flagOrangeColor;
+        ankiToggleFlag('orange');
+    }
+
+    function greenFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').className = "icon icon-selected";
+        document.getElementById('btnFlag').style.color = flagGreenColor;
+        ankiToggleFlag('green');
+    }
+
+    function blueFlagClicked() {
+        document.getElementById('flagList').style.display = "none";
+        document.getElementById('btnFlag').className = "icon icon-selected";
+        document.getElementById('btnFlag').style.color = flagBlueColor;
+        ankiToggleFlag('blue');
+    }
+
+    window.onclick = function (event) {
+        if (!document.getElementsByClassName('flag-list')[0].contains(event.target) && !document.getElementsByClassName('flag-btn')[0].contains(event.target)) {
+
+            document.getElementById('flagList').style.display = "none";
+
+        }
+    }
+</script>
+
+<!-- used js var 'per' (percentage) in following css, for smooth progress bar -->
+<style>
+    .progress-bar-1 {
+        height: 100%;
+        width: per;  /* js var per */
+        position: absolute;
+        left: 0;
+        z-index: 100;
+        border-radius: inherit;
+        background: var(--primary);
+        background: linear-gradient(-1deg, var(--btn-show-ans-dark) 0%, var(--btn-show-ans-bg-color) 50%, var(--btn-show-ans-light) 100%);
+    }
+</style>

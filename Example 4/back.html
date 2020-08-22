@@ -1,0 +1,30 @@
+{{FrontSide}}
+
+<div id="audio" style="display:none;">{{Audio}}</div>
+<script>
+    elemAudio.style.display = "flex";
+    document.getElementById("answerButtons").style.display = "block";
+    elemAudio.onclick = function () {
+        var audioDiv = document.getElementById('audio');
+        var audio = audioDiv.getElementsByTagName("*");
+        audio[0].click();
+    };
+
+    if (isMobile) {
+        if (isAndroidWebview) {
+            var isFullScreen = AnkiDroidJS.ankiIsInFullscreen();
+            if (isFullScreen) {
+                document.getElementById("showAns").style.display = "none";
+                document.getElementById("answerButtons").style.display = "flex";
+            } else {
+                hideAll();
+            }
+        }
+    } else {
+        hideAll();
+    }
+    elemSim.style.display = "block";
+    elemTrad.style.display = "block";
+    elemPin.style.display = "block";
+    elemMean.style.display = "block";
+</script>
