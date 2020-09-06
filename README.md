@@ -72,7 +72,6 @@ Share custom card design made using AnkiDroid JS API.
 - [codepen.io](https://codepen.io/)
 - [www.w3schools.com](https://www.w3schools.com/)
 
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L3L820U7D)
 
 ### License
 **Anki-Custom-Card-Layout**
