@@ -19,11 +19,11 @@ if (isMobile && isAndroidWebview) {
     if (isFullScreen) {
         init();
     } else {
-        //hideAll();
+        hideAll();
     }
 
 } else {
-    //hideAll();
+    hideAll();
 }
 
 function hideAll() {
