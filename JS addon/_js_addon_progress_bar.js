@@ -14,21 +14,21 @@ var isAndroidWebview = /wv/i.test(UA);
 if (isMobile && isAndroidWebview) {
     var isFullScreen = AnkiDroidJS.ankiIsInFullscreen();
     if (isFullScreen) {
-        init();
+        progressBarInit();
     } else {
-        hideAll();
+        progressBarHide();
     }
 } else {
-    hideAll();
+    progressBarHide();
 }
 
-function hideAll() {
+function progressBarHide() {
     document.getElementById("h-progress").style.display = "none";
     document.getElementById("h-bar").style.display = "none";
 }
 
-function init() {
-    document.body.insertBefore(progressDiv, document.body.firstChild);
+function progressBarInit() {
+     document.body.insertBefore(progressDiv, document.body.firstChild);
     var cardCount = parseInt(AnkiDroidJS.ankiGetNewCardCount()) + parseInt(AnkiDroidJS.ankiGetLrnCardCount()) + parseInt(AnkiDroidJS.ankiGetRevCardCount());
 
     var totalCardCount = 1;
