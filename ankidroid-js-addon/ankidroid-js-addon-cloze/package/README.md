@@ -1,1 +1,0 @@
-Create cloze from list

@@ -2,6 +2,8 @@
 
 Use AnkiDroid JavaScript functions to get cards details and design card like below. Turn on full screen and start reviewing in your custom Anki design. The API can also be used to hide JS API features on AnkiDesktop and AnkiMobile
 
+### ankidroid-js-addon moved [here](https://github.com/infinyte7/ankidroid-js-addon)
+
 **Note: AnkiDroid alpha *parallel* version can be downloaded for testing it. [AnkiDroid.A] also change directory to AnkiDroid.A in settings**
 <br>AnkiDroid version > 2.13 
 - [AnkiDroid Release Page](https://github.com/ankidroid/Anki-Android/releases)
